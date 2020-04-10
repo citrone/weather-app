@@ -1,0 +1,24 @@
+{
+  "name": "weather-app-server",
+  "version": "0.0.1",
+  "description": "Weather application GraphQL server",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather",
+    "graphql",
+    "apollo"
+  ],
+  "author": "Gabriel Cirtea",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-datasource-rest": "^0.8.1",
+    "apollo-server": "^2.12.0",
+    "custom-env": "^2.0.1",
+    "graphql": "^15.0.0",
+    "nodemon": "^2.0.3"
+  }
+}
