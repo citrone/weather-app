@@ -1,5 +1,5 @@
 const { ApolloServer } = require('apollo-server');
-require('custom-env').env();
+// require('custom-env').env();
 
 const typeDefs = require('./schema/weather');
 const resolvers = require('./resolvers/weather');

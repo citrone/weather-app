@@ -1,4 +1,4 @@
 const app = require('./src/index');
 
-app.listen().then(({url}) => console.log(`Server listening on: ${url}`))
+app.listen(process.env.PORT || 4000).then(({url}) => console.log(`Server listening on: ${url}`))
 
