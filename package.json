@@ -4,6 +4,7 @@
   "description": "Weather application GraphQL server",
   "main": "index.js",
   "scripts": {
+    "start": "node",
     "start:dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
