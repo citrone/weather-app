@@ -11,6 +11,11 @@ const typeDefs = gql`
         conditions: [Conditions]
         weather: [[CurrentWeather]]
     }
+    
+    type OneCallWeather {
+        currentWeather: InstantWeather
+        forecastDaily: [ForecastDaily]
+    }
 
     type Conditions {
         date: String
@@ -29,6 +34,37 @@ const typeDefs = gql`
         iconUrl: String
     }
 
+    type InstantWeather {
+        date: String
+        sunrise: String
+        sunset: String
+        temperature: Int
+        feelsLike: Int
+        pressure: Int
+        humidity: Int
+        windSpeed: Float
+    }
+
+    type ForecastDaily {
+        date: String
+        sunrise: String
+        sunset: String
+        temperature: ForecastTemperature
+        pressure: Int
+        humidity: Int
+        windSpeed: Float
+        rain: Float
+    }
+
+    type ForecastTemperature {
+        temperature: Int
+        minimumTemperature: Int
+        maximumTemperature: Int
+        nightTemperature: Int
+        eveTemperature: Int
+        morningTemperature: Int
+    }
+
     type CityCoordinates {
         longitude: Float
         latitude: Float
@@ -36,6 +72,7 @@ const typeDefs = gql`
 
     type Query {
         getCityLocation(city: String): CityCoordinates
+        getOneCallWeather(city: String): OneCallWeather
         getCurrentWeather(city: String): Weather
         getForecast(city: String): Forecast
     }

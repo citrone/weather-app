@@ -50,7 +50,44 @@ const forecastReducer = (forecastInfo) => {
     }
 }
 
+const oneCallWeatherReducer = (weatherInfo) => {
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+    return {
+        currentWeather: {
+            date: new Date(weatherInfo.current.dt * 1000).toLocaleDateString("en-US", options),
+            sunrise: new Date(weatherInfo.current.sunrise * 1000).toLocaleTimeString("en-US"),
+            sunset: new Date(weatherInfo.current.sunset * 1000).toLocaleTimeString("en-US"),
+            temperature: Math.round(weatherInfo.current.temp),
+            feelsLike: Math.round(weatherInfo.current.feels_like),
+            pressure: weatherInfo.current.pressure,
+            humidity: weatherInfo.current.humidity,
+            windSpeed: weatherInfo.current.wind_speed
+        },
+        forecastDaily: weatherInfo.daily.map(dailyWeather => {
+            console.log(dailyWeather);
+            return {
+                date: new Date(dailyWeather.dt * 1000).toLocaleDateString("en-US", options),
+                sunrise: new Date(dailyWeather.sunrise * 1000).toLocaleTimeString("en-US"),
+                sunset: new Date(dailyWeather.sunset * 1000).toLocaleTimeString("en-US"),
+                temperature: {
+                    temperature: Math.round(dailyWeather.temp.day),
+                    minimumTemperature: Math.round(dailyWeather.temp.min),
+                    maximumTemperature: Math.round(dailyWeather.temp.max),
+                    nightTemperature: Math.round(dailyWeather.temp.night),
+                    eveTemperature: Math.round(dailyWeather.temp.eve),
+                    morningTemperature: Math.round(dailyWeather.temp.morn)
+                },
+                pressure: dailyWeather.pressure,
+                humidity: dailyWeather.humidity,
+                windSpeed: dailyWeather.wind_speed,
+                rain: dailyWeather.rain
+            }
+        })
+    }
+}
+
 module.exports = {
     currentWeatherReducer,
+    oneCallWeatherReducer,
     forecastReducer
 }
