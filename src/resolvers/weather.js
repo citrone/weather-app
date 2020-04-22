@@ -5,6 +5,8 @@ module.exports = {
         getCurrentWeather: (_, { city }, { dataSources }) => 
             dataSources.weatherAPI.getCurrentWeatherInfo(city),
         getForecast: (_, { city }, { dataSources }) =>
-            dataSources.weatherAPI.getForecastInfo(city)
+            dataSources.weatherAPI.getForecastInfo(city),
+        getForecastDetailed: (_, { city }, { dataSources }) =>
+            dataSources.weatherAPI.getDetailedForecastInfo(city)
     }
 }

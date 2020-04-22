@@ -1,6 +1,6 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 
-const { currentWeatherReducer, forecastReducer } = require('./reducers');
+const { currentWeatherReducer, forecastDetailedReducer, forecastReducer } = require('./reducers');
 
 class WeatherAPI extends RESTDataSource {
     constructor() {
@@ -18,6 +18,12 @@ class WeatherAPI extends RESTDataSource {
         this.city = city;
         const response = await this.get('forecast');
         return forecastReducer(response);
+    }
+
+    async getDetailedForecastInfo(city) {
+        this.city = city;
+        const response = await this.get('forecast');
+        return forecastDetailedReducer(response);
     }
 
     async getCityCoordinates(city) {

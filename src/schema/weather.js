@@ -14,10 +14,10 @@ const typeDefs = gql`
 
     type Conditions {
         date: String
-        temperature: Float
-        feelsLike: Float
-        minimumTemperature: Float
-        maximumTemperature: Float
+        temperature: Int
+        feelsLike: Int
+        minimumTemperature: Int
+        maximumTemperature: Int
         pressure: Int
         humidity: Int
         weather: [CurrentWeather]
@@ -38,6 +38,7 @@ const typeDefs = gql`
         getCityLocation(city: String): CityCoordinates
         getCurrentWeather(city: String): Weather
         getForecast(city: String): Forecast
+        getForecastDetailed(city: String): Forecast
     }
 `;
 
