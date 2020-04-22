@@ -13,7 +13,6 @@ class WeatherAPI extends RESTDataSource {
 
     async getForecastInfo() {
         const response = await this.get('forecast');
-        //console.log(this.forecastReducer(response));
         return this.forecastReducer(response);
     }
 
