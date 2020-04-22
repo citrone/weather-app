@@ -12,7 +12,8 @@ const server = new ApolloServer(
         dataSources: () => ({
             weatherAPI: new WeatherAPI()
         }),
-        context: { appKey: process.env.WEATHER_API_KEY }
+        context: { appKey: process.env.WEATHER_API_KEY },
+        playground: true
     }
 );
 
