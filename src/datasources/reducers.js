@@ -25,31 +25,6 @@ const currentWeatherReducer = (weatherInfo) => {
     }
 }
 
-const forecastDetailedReducer = (forecastInfo) => {
-    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-    return {
-        where: `${forecastInfo.city.name}, ${forecastInfo.city.country}`,
-        conditions: forecastInfo.list.map(crtForecast => {
-            return {
-                date: new Date(crtForecast.dt * 1000).toLocaleDateString("en-US", options),
-                temperature: Math.round(crtForecast.main.temp),
-                feelsLike: Math.round(crtForecast.main.feels_like),
-                minimumTemperature: Math.round(crtForecast.main.temp_min),
-                maximumTemperature: Math.round(crtForecast.main.temp_max),
-                pressure: crtForecast.main.pressure,
-                humidity: crtForecast.main.humidity,
-                weather: crtForecast.weather.map(crtWeather => {
-                    return {
-                        status: crtWeather.main,
-                        description: crtWeather.description,
-                        iconUrl: `http://openweathermap.org/img/wn/${crtWeather.icon}.png`
-                    }
-                })
-            }
-        }),
-    }
-}
-
 const forecastReducer = (forecastInfo) => {
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
     return {
@@ -77,6 +52,5 @@ const forecastReducer = (forecastInfo) => {
 
 module.exports = {
     currentWeatherReducer,
-    forecastDetailedReducer,
     forecastReducer
 }

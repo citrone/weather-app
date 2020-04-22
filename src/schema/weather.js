@@ -38,7 +38,6 @@ const typeDefs = gql`
         getCityLocation(city: String): CityCoordinates
         getCurrentWeather(city: String): Weather
         getForecast(city: String): Forecast
-        getForecastDetailed(city: String): Forecast
     }
 `;
 
