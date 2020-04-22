@@ -18,6 +18,11 @@ class WeatherAPI extends RESTDataSource {
         return forecastReducer(response);
     }
 
+    async getCityCoordinates(city) {
+        const response = await this.getCurrentWeatherInfo();
+        return response.coords;
+    }
+
     willSendRequest(request) {
         request.params.set('q', 'Timisoara');
         request.params.set('units', 'metric');

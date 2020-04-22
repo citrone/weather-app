@@ -1,6 +1,10 @@
 const currentWeatherReducer = (weatherInfo) => {
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
     return {
+        coords: {
+            longitude: weatherInfo.coord.lon,
+            latitude: weatherInfo.coord.lat
+        },
         where: `${weatherInfo.name}, ${weatherInfo.sys.country}`,
         conditions: {
             date: new Date(weatherInfo.dt * 1000).toLocaleDateString("ro-RO", options),

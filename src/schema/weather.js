@@ -29,7 +29,13 @@ const typeDefs = gql`
         iconUrl: String
     }
 
+    type CityCoordinates {
+        longitude: Float
+        latitude: Float
+    }
+
     type Query {
+        getCityLocation(city: String): CityCoordinates
         getCurrentWeather: Weather
         getForecast: Forecast
     }
