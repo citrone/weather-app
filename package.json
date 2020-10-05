@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "apollo-datasource-rest": "^0.8.1",
-    "apollo-server": "^2.12.0",
+    "apollo-server": "^2.14.2",
     "custom-env": "^2.0.1",
     "graphql": "^15.0.0",
     "nodemon": "^2.0.3"
